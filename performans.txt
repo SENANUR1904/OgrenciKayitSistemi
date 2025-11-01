@@ -1,0 +1,19 @@
+=== PERFORMANS RAPORU ===
+Oluşturulma Tarihi: Sat Nov 01 13:48:49 TRT 2025
+Toplam Öğrenci Sayısı: 10002
+Rapor Oluşturma Süresi: 295 ms
+
+=== SINIF DAĞILIMI ===
+1. Sınıf: 2522 öğrenci
+2. Sınıf: 2536 öğrenci
+3. Sınıf: 2426 öğrenci
+4. Sınıf: 2518 öğrenci
+
+=== CİNSİYET DAĞILIMI ===
+Erkek: 4908 öğrenci
+Kız: 5094 öğrenci
+
+=== GANO İSTATİSTİKLERİ ===
+Ortalama GANO: 2,74
+En Yüksek GANO: 4,00
+En Düşük GANO: 1,50
