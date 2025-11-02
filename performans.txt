@@ -1,5 +1,25 @@
-=== PERFORMANS RAPORU ===
-Oluşturulma Tarihi: Sat Nov 01 15:48:45 TRT 2025
-Toplam Öğrenci Sayısı: 10000
-Rapor Oluşturma Süresi: 181 ms
-
+[Sun Nov 02 13:43:38 TRT 2025] Rapor oluşturma işlemi süresi: 296 ms
+[Sun Nov 02 13:43:58 TRT 2025] Ekleme Testi - Temel Mod işlemi süresi: 10 ms
+[Sun Nov 02 13:44:07 TRT 2025] Arama Testi - Temel Mod işlemi süresi: 3 ms
+[Sun Nov 02 13:44:14 TRT 2025] Listeleme Testi - Temel Mod işlemi süresi: 4340 ms
+[Sun Nov 02 13:44:24 TRT 2025] Ekleme Testi - Temel Mod işlemi süresi: 1 ms
+[Sun Nov 02 13:44:24 TRT 2025] Arama Testi - Temel Mod işlemi süresi: 1 ms
+[Sun Nov 02 13:44:24 TRT 2025] Listeleme Testi - Temel Mod işlemi süresi: 3256 ms
+[Sun Nov 02 13:47:17 TRT 2025] Rapor oluşturma işlemi süresi: 191 ms
+[Sun Nov 02 13:49:17 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 5119 ms
+[Sun Nov 02 13:49:34 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 5820 ms
+[Sun Nov 02 13:49:53 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 4460 ms
+[Sun Nov 02 13:49:59 TRT 2025] Ekleme Testi - Gelişmiş Mod işlemi süresi: 1 ms
+[Sun Nov 02 13:49:59 TRT 2025] Arama Testi - Gelişmiş Mod işlemi süresi: 4 ms
+[Sun Nov 02 13:49:59 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 5163 ms
+[Sun Nov 02 13:50:33 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 2375 ms
+[Sun Nov 02 13:50:36 TRT 2025] Ekleme Testi - Gelişmiş Mod işlemi süresi: 1 ms
+[Sun Nov 02 14:08:25 TRT 2025] Rapor oluşturma işlemi süresi: 165 ms
+[Sun Nov 02 14:10:03 TRT 2025] Ekleme Testi - Gelişmiş Mod işlemi süresi: 6 ms
+[Sun Nov 02 14:10:08 TRT 2025] Arama Testi - Gelişmiş Mod işlemi süresi: 4 ms
+[Sun Nov 02 14:10:16 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 5397 ms
+[Sun Nov 02 14:10:24 TRT 2025] Ekleme Testi - Gelişmiş Mod işlemi süresi: 0 ms
+[Sun Nov 02 14:10:24 TRT 2025] Arama Testi - Gelişmiş Mod işlemi süresi: 2 ms
+[Sun Nov 02 14:10:24 TRT 2025] Listeleme Testi - Gelişmiş Mod işlemi süresi: 4610 ms
+[Sun Nov 02 14:37:23 TRT 2025] 6 rapor dosyası oluşturma süresi: 438 ms
+[Sun Nov 02 15:56:25 TRT 2025] 6 rapor dosyası oluşturma süresi: 386 ms

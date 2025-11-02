@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.*;
 import java.util.List;
 
 public class OgrenciKayitSistemiGUI extends JFrame {
@@ -38,31 +39,28 @@ public class OgrenciKayitSistemiGUI extends JFrame {
     }
     
     private void showBildirim(String baslik, String mesaj, String tip) {
-        // Özel bildirim penceresi oluştur
         JDialog bildirim = new JDialog(this, baslik, true);
         bildirim.setSize(400, 250);
         bildirim.setLocationRelativeTo(this);
         bildirim.setLayout(new BorderLayout());
         bildirim.setResizable(false);
         
-        // İkon ve renk ayarı
         String icon = "";
         Color color = Color.BLUE;
         if (tip.equals("success")) {
             icon = "✅";
-            color = new Color(34, 139, 34); // Yeşil
+            color = new Color(34, 139, 34);
         } else if (tip.equals("error")) {
             icon = "❌";
-            color = new Color(178, 34, 34); // Kırmızı
+            color = new Color(178, 34, 34);
         } else if (tip.equals("warning")) {
             icon = "⚠️";
-            color = new Color(255, 140, 0); // Turuncu
+            color = new Color(255, 140, 0);
         } else {
             icon = "ℹ️";
-            color = new Color(70, 130, 180); // Mavi
+            color = new Color(70, 130, 180);
         }
         
-        // Başlık paneli
         JPanel baslikPanel = new JPanel(new FlowLayout());
         baslikPanel.setBackground(color);
         baslikPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -72,7 +70,6 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         baslikLabel.setForeground(Color.WHITE);
         baslikPanel.add(baslikLabel);
         
-        // Mesaj paneli
         JPanel mesajPanel = new JPanel(new BorderLayout());
         mesajPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
@@ -86,7 +83,6 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         JScrollPane scrollPane = new JScrollPane(mesajArea);
         mesajPanel.add(scrollPane, BorderLayout.CENTER);
         
-        // Buton paneli
         JPanel butonPanel = new JPanel(new FlowLayout());
         JButton tamamBtn = new JButton("Tamam");
         tamamBtn.setBackground(color);
@@ -138,6 +134,7 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         tabbedPane.addTab("Arama İşlemleri", createAramaPanel());
         tabbedPane.addTab("Listeleme", createListelemePanel());
         tabbedPane.addTab("Hash Tablosu", createHashPanel());
+        tabbedPane.addTab("Performans Testi", createPerformansPanel());
         
         add(tabbedPane, BorderLayout.CENTER);
     }
@@ -356,6 +353,149 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         return panel;
     }
     
+    private JPanel createPerformansPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBorder(BorderFactory.createTitledBorder("Performans Testleri"));
+        panel.setBackground(new Color(245, 245, 245));
+        
+        JTabbedPane performansTabbedPane = new JTabbedPane();
+        
+        // Otomatik Testler Sekmesi
+        JPanel otomatikTestPanel = new JPanel(new BorderLayout());
+        JTextArea performansAlani = new JTextArea();
+        performansAlani.setEditable(false);
+        performansAlani.setBackground(new Color(240, 248, 255));
+        performansAlani.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        
+        JScrollPane scrollPane = new JScrollPane(performansAlani);
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Otomatik Test Sonuçları"));
+        
+        JPanel butonPanel = new JPanel(new FlowLayout());
+        
+        JButton btnTestEkleme = new JButton("Ekleme Performans Testi");
+        btnTestEkleme.setBackground(new Color(34, 139, 34));
+        btnTestEkleme.setForeground(Color.WHITE);
+        btnTestEkleme.addActionListener(e -> {
+            String sonuc = sistem.performansTestiEkleme();
+            performansAlani.setText(sonuc);
+            sonucAlani.append("Ekleme performans testi tamamlandı.\n");
+        });
+        butonPanel.add(btnTestEkleme);
+        
+        JButton btnTestArama = new JButton("Arama Performans Testi");
+        btnTestArama.setBackground(new Color(70, 130, 180));
+        btnTestArama.setForeground(Color.WHITE);
+        btnTestArama.addActionListener(e -> {
+            String sonuc = sistem.performansTestiArama();
+            performansAlani.setText(sonuc);
+            sonucAlani.append("Arama performans testi tamamlandı.\n");
+        });
+        butonPanel.add(btnTestArama);
+        
+        JButton btnTestSilme = new JButton("Silme Performans Testi");
+        btnTestSilme.setBackground(new Color(178, 34, 34));
+        btnTestSilme.setForeground(Color.WHITE);
+        btnTestSilme.addActionListener(e -> {
+            String sonuc = sistem.performansTestiSilme();
+            performansAlani.setText(sonuc);
+            sonucAlani.append("Silme performans testi tamamlandı.\n");
+        });
+        butonPanel.add(btnTestSilme);
+        
+        JButton btnTestListeleme = new JButton("Listeleme Performans Testi");
+        btnTestListeleme.setBackground(new Color(148, 0, 211));
+        btnTestListeleme.setForeground(Color.WHITE);
+        btnTestListeleme.addActionListener(e -> {
+            String sonuc = sistem.performansTestiListeleme();
+            performansAlani.setText(sonuc);
+            sonucAlani.append("Listeleme performans testi tamamlandı.\n");
+        });
+        butonPanel.add(btnTestListeleme);
+        
+        JButton btnTumTestler = new JButton("Tüm Performans Testleri");
+        btnTumTestler.setBackground(new Color(139, 0, 0));
+        btnTumTestler.setForeground(Color.WHITE);
+        btnTumTestler.addActionListener(e -> {
+            String sonuc = sistem.tumPerformansTestleriniCalistir();
+            performansAlani.setText(sonuc);
+            sonucAlani.append("Tüm performans testleri tamamlandı.\n");
+        });
+        butonPanel.add(btnTumTestler);
+        
+        // SENKRONİZASYON BUTONU EKLENDİ
+        JButton btnSenkronizasyon = new JButton("Senkronizasyon Kontrolü");
+        btnSenkronizasyon.setBackground(new Color(47, 79, 79));
+        btnSenkronizasyon.setForeground(Color.WHITE);
+        btnSenkronizasyon.addActionListener(e -> {
+            String senkronRapor = sistem.senkronizasyonRaporu();
+            performansAlani.setText(senkronRapor);
+            sonucAlani.append("Senkronizasyon kontrolü yapıldı.\n");
+        });
+        butonPanel.add(btnSenkronizasyon);
+        
+        otomatikTestPanel.add(butonPanel, BorderLayout.NORTH);
+        otomatikTestPanel.add(scrollPane, BorderLayout.CENTER);
+        
+        // Manuel İşlemler Sekmesi
+        JPanel manuelPanel = new JPanel(new BorderLayout());
+        JTextArea manuelPerformansAlani = new JTextArea();
+        manuelPerformansAlani.setEditable(false);
+        manuelPerformansAlani.setBackground(new Color(255, 250, 240));
+        manuelPerformansAlani.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        
+        JScrollPane manuelScrollPane = new JScrollPane(manuelPerformansAlani);
+        manuelScrollPane.setBorder(BorderFactory.createTitledBorder("Manuel İşlem Performansı"));
+        
+        JPanel manuelButonPanel = new JPanel(new FlowLayout());
+        
+        JButton btnGosterManuel = new JButton("Manuel İşlemleri Göster");
+        btnGosterManuel.setBackground(new Color(47, 79, 79));
+        btnGosterManuel.setForeground(Color.WHITE);
+        btnGosterManuel.addActionListener(e -> {
+            try {
+                File file = new File("manuel_performans.txt");
+                if (file.exists()) {
+                    StringBuilder content = new StringBuilder();
+                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        content.append(line).append("\n");
+                    }
+                    reader.close();
+                    manuelPerformansAlani.setText(content.toString());
+                } else {
+                    manuelPerformansAlani.setText("Henüz manuel işlem kaydı bulunmuyor.\n\nNormal işlemler yapın (ekleme, silme, arama) ve buraya tıklayın.");
+                }
+            } catch (IOException ex) {
+                manuelPerformansAlani.setText("Dosya okuma hatası: " + ex.getMessage());
+            }
+        });
+        manuelButonPanel.add(btnGosterManuel);
+        
+        JButton btnTemizleManuel = new JButton("Manuel Kayıtları Temizle");
+        btnTemizleManuel.setBackground(new Color(178, 34, 34));
+        btnTemizleManuel.setForeground(Color.WHITE);
+        btnTemizleManuel.addActionListener(e -> {
+            try {
+                new FileWriter("manuel_performans.txt", false).close();
+                manuelPerformansAlani.setText("Manuel performans kayıtları temizlendi.");
+            } catch (IOException ex) {
+                manuelPerformansAlani.setText("Temizleme hatası: " + ex.getMessage());
+            }
+        });
+        manuelButonPanel.add(btnTemizleManuel);
+        
+        manuelPanel.add(manuelButonPanel, BorderLayout.NORTH);
+        manuelPanel.add(manuelScrollPane, BorderLayout.CENTER);
+        
+        performansTabbedPane.addTab("Otomatik Testler", otomatikTestPanel);
+        performansTabbedPane.addTab("Manuel İşlemler", manuelPanel);
+        
+        panel.add(performansTabbedPane, BorderLayout.CENTER);
+        
+        return panel;
+    }
+    
     private void modDegistir() {
         boolean yeniMod = modComboBox.getSelectedIndex() == 0;
         sistem = new OgrenciKayitSistemi(yeniMod);
@@ -363,7 +503,8 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         updateOgrenciSayisi();
         showBildirim("Mod Değiştirildi", 
             "Yeni mod: " + (yeniMod ? "Gelişmiş Veri Tipi" : "Temel Veri Tipi") +
-            "\n\nToplam öğrenci: " + sistem.getToplamOgrenciSayisi(), 
+            "\n\nToplam öğrenci: " + sistem.getToplamOgrenciSayisi() + 
+            "\n\n✅ Her iki liste de senkronize şekilde çalışıyor!", 
             "info");
     }
     
@@ -376,56 +517,79 @@ public class OgrenciKayitSistemiGUI extends JFrame {
             int sinif = Integer.parseInt(txtSinif.getText().trim());
             char cinsiyet = txtCinsiyet.getText().trim().toUpperCase().charAt(0);
             
-            if (isim.isEmpty() || soyad.isEmpty()) {
-                showBildirim("Hata", "İsim ve soyad boş olamaz!", "error");
-                return;
-            }
+        // Öğrenci numarası format kontrolü
+        if (String.valueOf(ogrNo).length() != 9) {
+            showBildirim("Hata", "Öğrenci numarası 9 haneli olmalıdır!\n\nGirilen: " + ogrNo + " (" + String.valueOf(ogrNo).length() + " haneli)", "error");
+            return;
+        }
+        
+        if (isim.isEmpty() || soyad.isEmpty()) {
+            showBildirim("Hata", "İsim ve soyad boş olamaz!", "error");
+            return;
+        }
+        
+        if (sinif < 1 || sinif > 4) {
+            showBildirim("Hata", "Sınıf 1-4 arasında olmalıdır!", "error");
+            return;
+        }
+        
+        if (cinsiyet != 'E' && cinsiyet != 'K') {
+            showBildirim("Hata", "Cinsiyet E veya K olmalıdır!", "error");
+            return;
+        }
+        
+        Ogrenci ogr = new Ogrenci(isim, soyad, ogrNo, gano, sinif, cinsiyet);
+        
+        if (sistem.ogrenciEkle(ogr)) {
+            sonucAlani.append("Öğrenci başarıyla eklendi: " + ogrNo + " - " + isim + " " + soyad + "\n");
+            formTemizle();
+            updateOgrenciSayisi();
+            tumOgrencileriListele();
             
-            if (sinif < 1 || sinif > 4) {
-                showBildirim("Hata", "Sınıf 1-4 arasında olmalıdır!", "error");
-                return;
-            }
-            
-            if (cinsiyet != 'E' && cinsiyet != 'K') {
-                showBildirim("Hata", "Cinsiyet E veya K olmalıdır!", "error");
-                return;
-            }
-            
-            Ogrenci ogr = new Ogrenci(isim, soyad, ogrNo, gano, sinif, cinsiyet);
-            
-            if (sistem.ogrenciEkle(ogr)) {
-                sonucAlani.append("Öğrenci başarıyla eklendi: " + ogrNo + " - " + isim + " " + soyad + "\n");
-                formTemizle();
-                updateOgrenciSayisi();
-                tumOgrencileriListele();
-                
-                // ÖZEL BİLDİRİM - EKLEME
+            // Senkronizasyon kontrolü
+            if (sistem.listelerSenkronizeMi()) {
                 showBildirim("Öğrenci Eklendi", 
-                    "Öğrenci başarıyla listeye eklendi!\n\n" +
+                    "Öğrenci başarıyla HER İKİ LİSTEYE eklendi!\n\n" +
                     "📋 ÖĞRENCİ BİLGİLERİ:\n" +
                     "─────────────────────\n" +
                     "• İsim: " + isim + "\n" +
                     "• Soyad: " + soyad + "\n" +
-                    "• No: " + ogrNo + "\n" +
+                    "• No: " + ogrNo + " ✓ (9 haneli)\n" +
                     "• GANO: " + gano + "\n" +
                     "• Cinsiyet: " + (cinsiyet == 'E' ? "Erkek" : "Kız") + "\n" +
                     "• Sınıf: " + sinif + "\n\n" +
-                    "✅ Öğrenci başarıyla eklendi!", 
+                    "✅ Öğrenci her iki listeye de eklendi!\n" +
+                    "📊 Listeler senkronize: EVET", 
                     "success");
             } else {
-                showBildirim("Hata", 
-                    ogrNo + " numarası zaten mevcut!\n\n" +
-                    "Lütfen farklı bir öğrenci numarası giriniz.", 
-                    "error");
+                showBildirim("Uyarı", 
+                    "Öğrenci eklendi ancak listeler senkronize değil!\n\n" +
+                    sistem.senkronizasyonRaporu(), 
+                    "warning");
             }
-        } catch (Exception ex) {
-            showBildirim("Hata", "Geçerli veri giriniz!\n\nHata: " + ex.getMessage(), "error");
+        } else {
+            showBildirim("Hata", 
+                ogrNo + " numarası zaten mevcut!\n\n" +
+                "Lütfen farklı bir öğrenci numarası giriniz.", 
+                "error");
         }
+    } catch (IllegalArgumentException ex) {
+        showBildirim("Hata", "Öğrenci numarası hatası!\n\n" + ex.getMessage(), "error");
+    } catch (Exception ex) {
+        showBildirim("Hata", "Geçerli veri giriniz!\n\nHata: " + ex.getMessage(), "error");
+    }
     }
     
     private void ogrenciGuncelle() {
         try {
             int ogrNo = Integer.parseInt(txtOgrNo.getText().trim());
+            
+            // Öğrenci numarası format kontrolü
+            if (String.valueOf(ogrNo).length() != 9) {
+                showBildirim("Hata", "Öğrenci numarası 9 haneli olmalıdır!\n\nGirilen: " + ogrNo + " (" + String.valueOf(ogrNo).length() + " haneli)", "error");
+                return;
+            }
+            
             Ogrenci ogr = sistem.ogrenciNoIleAra(ogrNo);
             
             if (ogr != null) {
@@ -435,7 +599,6 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                 int sinif = Integer.parseInt(txtSinif.getText().trim());
                 char cinsiyet = txtCinsiyet.getText().trim().toUpperCase().charAt(0);
                 
-                // Eski bilgileri sakla
                 String eskiIsim = ogr.getIsim();
                 String eskiSoyad = ogr.getSoyad();
                 float eskiGano = ogr.getGano();
@@ -454,12 +617,11 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                 updateOgrenciSayisi();
                 tumOgrencileriListele();
                 
-                // ÖZEL BİLDİRİM - GÜNCELLEME
                 showBildirim("Öğrenci Güncellendi", 
-                    "Öğrenci bilgileri başarıyla güncellendi!\n\n" +
+                    "Öğrenci bilgileri başarıyla HER İKİ LİSTEDE güncellendi!\n\n" +
                     "📋 GÜNCELLENEN BİLGİLER:\n" +
                     "───────────────────────\n" +
-                    "• Öğrenci No: " + ogrNo + "\n\n" +
+                    "• Öğrenci No: " + ogrNo + " ✓ (9 haneli)\n\n" +
                     "📝 ESKİ BİLGİLER:\n" +
                     "• İsim: " + eskiIsim + "\n" +
                     "• Soyad: " + eskiSoyad + "\n" +
@@ -472,7 +634,7 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                     "• GANO: " + gano + "\n" +
                     "• Cinsiyet: " + (cinsiyet == 'E' ? "Erkek" : "Kız") + "\n" +
                     "• Sınıf: " + sinif + "\n\n" +
-                    "✅ Öğrenci başarıyla güncellendi!", 
+                    "✅ Öğrenci her iki listede de güncellendi!", 
                     "success");
             } else {
                 showBildirim("Hata", 
@@ -488,10 +650,16 @@ public class OgrenciKayitSistemiGUI extends JFrame {
     private void ogrenciSil() {
         try {
             int ogrNo = Integer.parseInt(txtOgrNo.getText().trim());
+            
+            // Öğrenci numarası format kontrolü
+            if (String.valueOf(ogrNo).length() != 9) {
+                showBildirim("Hata", "Öğrenci numarası 9 haneli olmalıdır!\n\nGirilen: " + ogrNo + " (" + String.valueOf(ogrNo).length() + " haneli)", "error");
+                return;
+            }
+            
             Ogrenci ogr = sistem.ogrenciNoIleAra(ogrNo);
             
             if (ogr != null) {
-                // Silinmeden önce bilgileri sakla
                 String isim = ogr.getIsim();
                 String soyad = ogr.getSoyad();
                 float gano = ogr.getGano();
@@ -499,33 +667,33 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                 char cinsiyet = ogr.getCinsiyet();
                 
                 int confirm = JOptionPane.showConfirmDialog(this, 
-                    "Aşağıdaki öğrenciyi silmek istiyor musunuz?\n\n" +
+                    "Aşağıdaki öğrenciyi HER İKİ LİSTEDEN silmek istiyor musunuz?\n\n" +
                     "İsim: " + isim + "\n" +
                     "Soyad: " + soyad + "\n" +
-                    "No: " + ogrNo + "\n" +
+                    "No: " + ogrNo + " ✓ (9 haneli)\n" +
                     "GANO: " + gano + "\n" +
                     "Sınıf: " + sinif,
                     "Öğrenci Silme Onayı", JOptionPane.YES_NO_OPTION);
                 
                 if (confirm == JOptionPane.YES_OPTION) {
                     if (sistem.ogrenciSil(ogrNo)) {
-                        sonucAlani.append("Öğrenci silindi: " + ogrNo + " - " + isim + " " + soyad + "\n");
+                        sonucAlani.append("Öğrenci HER İKİ LİSTEDEN silindi: " + ogrNo + " - " + isim + " " + soyad + "\n");
                         formTemizle();
                         updateOgrenciSayisi();
                         tumOgrencileriListele();
                         
-                        // ÖZEL BİLDİRİM - SİLME
                         showBildirim("Öğrenci Silindi", 
-                            "Öğrenci başarıyla listeden silindi!\n\n" +
+                            "Öğrenci başarıyla HER İKİ LİSTEDEN silindi!\n\n" +
                             "📋 SİLİNEN ÖĞRENCİ BİLGİLERİ:\n" +
                             "──────────────────────────\n" +
                             "• İsim: " + isim + "\n" +
                             "• Soyad: " + soyad + "\n" +
-                            "• No: " + ogrNo + "\n" +
+                            "• No: " + ogrNo + " ✓ (9 haneli)\n" +
                             "• GANO: " + gano + "\n" +
                             "• Cinsiyet: " + (cinsiyet == 'E' ? "Erkek" : "Kız") + "\n" +
                             "• Sınıf: " + sinif + "\n\n" +
-                            "✅ Öğrenci başarıyla silindi!", 
+                            "✅ Öğrenci her iki listeden de silindi!\n" +
+                            "📊 Yeni toplam: " + sistem.getToplamOgrenciSayisi() + " öğrenci", 
                             "success");
                     }
                 }
@@ -543,6 +711,13 @@ public class OgrenciKayitSistemiGUI extends JFrame {
     private void ogrenciNoIleAra() {
         try {
             int ogrNo = Integer.parseInt(txtAramaOgrNo.getText().trim());
+            
+            // Öğrenci numarası format kontrolü
+            if (String.valueOf(ogrNo).length() != 9) {
+                showBildirim("Hata", "Öğrenci numarası 9 haneli olmalıdır!\n\nGirilen: " + ogrNo + " (" + String.valueOf(ogrNo).length() + " haneli)", "error");
+                return;
+            }
+            
             Ogrenci ogr = sistem.ogrenciNoIleAra(ogrNo);
             
             if (ogr != null) {
@@ -552,24 +727,23 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                 List<Ogrenci> tekOgrenci = java.util.Arrays.asList(ogr);
                 tabloyuGuncelle(tekOgrenci);
                 
-                // ÖZEL BİLDİRİM - BULUNDU
                 showBildirim("Öğrenci Bulundu", 
-                    "Arama sonucu: ÖĞRENCİ BULUNDU!\n\n" +
+                    "Arama sonucu: ÖĞRENCİ HER İKİ LİSTEDE BULUNDU!\n\n" +
                     "📋 BULUNAN ÖĞRENCİ BİLGİLERİ:\n" +
                     "──────────────────────────\n" +
                     "• İsim: " + ogr.getIsim() + "\n" +
                     "• Soyad: " + ogr.getSoyad() + "\n" +
-                    "• No: " + ogr.getOgrNo() + "\n" +
+                    "• No: " + ogr.getOgrNo() + " ✓ (9 haneli)\n" +
                     "• GANO: " + ogr.getGano() + "\n" +
                     "• Cinsiyet: " + (ogr.getCinsiyet() == 'E' ? "Erkek" : "Kız") + "\n" +
                     "• Sınıf: " + ogr.getSinif() + "\n\n" +
-                    "✅ Öğrenci başarıyla bulundu!", 
+                    "✅ Öğrenci her iki listede de başarıyla bulundu!", 
                     "success");
             } else {
                 showBildirim("Arama Sonucu", 
                     "Arama sonucu: ÖĞRENCİ BULUNAMADI!\n\n" +
-                    "Aranan Öğrenci No: " + ogrNo + "\n\n" +
-                    "⚠️ Bu numaraya kayıtlı öğrenci bulunamadı.\n" +
+                    "Aranan Öğrenci No: " + ogrNo + " ✓ (9 haneli)\n\n" +
+                    "⚠️ Bu numaraya kayıtlı öğrenci HER İKİ LİSTEDE de bulunamadı.\n" +
                     "Lütfen öğrenci numarasını kontrol ediniz.", 
                     "warning");
             }
@@ -600,8 +774,6 @@ public class OgrenciKayitSistemiGUI extends JFrame {
                 showBildirim("Arama Sonucu", 
                     "Arama sonucu: " + sonuclar.size() + " ÖĞRENCİ BULUNDU!\n\n" +
                     "Aranan İsim: '" + isim + "'\n\n" +
-                    "📊 BULUNAN ÖĞRENCİLER:\n" +
-                    "─────────────────────\n" +
                     getOgrenciListesi(sonuclar) + "\n" +
                     "✅ Toplam " + sonuclar.size() + " öğrenci bulundu!", 
                     "success");
@@ -616,7 +788,7 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         StringBuilder sb = new StringBuilder();
         int sayac = 0;
         for (Ogrenci ogr : ogrenciler) {
-            if (sayac < 5) { // İlk 5 öğrenciyi göster
+            if (sayac < 5) {
                 sb.append("• ").append(ogr.getIsim()).append(" ").append(ogr.getSoyad())
                   .append(" (").append(ogr.getOgrNo()).append(") - GANO: ").append(ogr.getGano()).append("\n");
                 sayac++;
@@ -632,13 +804,18 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         List<Ogrenci> ogrenciler = sistem.tumOgrencileriGetir();
         tabloyuGuncelle(ogrenciler);
         sonucAlani.append("Tüm öğrenciler listelendi (GANO sıralı). Toplam: " + ogrenciler.size() + " öğrenci\n");
+        
+        // Senkronizasyon kontrolü
+        String senkronDurum = sistem.listelerSenkronizeMi() ? "✓ SENKRONİZE" : "✗ SENKRONİZE DEĞİL";
+        
         showBildirim("Listeleme Tamamlandı", 
             "TÜM ÖĞRENCİLER LİSTELENDİ!\n\n" +
             "📊 LİSTELEME BİLGİLERİ:\n" +
             "─────────────────────\n" +
             "• Sıralama: GANO'ya göre (büyükten küçüğe)\n" +
             "• Toplam Öğrenci: " + ogrenciler.size() + "\n" +
-            "• Listeleme Tarihi: " + new java.util.Date() + "\n\n" +
+            "• Listeleme Tarihi: " + new java.util.Date() + "\n" +
+            "• Senkronizasyon: " + senkronDurum + "\n\n" +
             "✅ Tüm öğrenciler başarıyla listelendi!", 
             "info");
     }
@@ -708,12 +885,12 @@ public class OgrenciKayitSistemiGUI extends JFrame {
             "✅ 6 adet rapor dosyası başarıyla oluşturuldu:\n\n" +
             "📄 OLUŞTURULAN RAPORLAR:\n" +
             "───────────────────────\n" +
-            "1. ogrenciler.txt - GANO sıralı tüm öğrenciler\n" +
-            "2. sinif_sirasi.txt - Sınıf sıralı liste\n" +
+            "1. ogrenciler_gano_sirali.txt - GANO sıralı tüm öğrenciler\n" +
+            "2. sinif_sirali.txt - Sınıf sıralı liste\n" +
             "3. ogrenci_no_sirali.txt - Öğrenci no sıralı liste\n" +
-            "4. bolum_sirasi.txt - Bölüm sıralı liste\n" +
-            "5. hash_index.txt - Hash tablosu içeriği\n" +
-            "6. performans.txt - Performans istatistikleri\n\n" +
+            "4. bolum_sirali.txt - Bölüm sıralı liste\n" +
+            "5. cinsiyet_sirali.txt - Cinsiyet sıralı liste\n" +
+            "6. isim_sirali.txt - İsim sıralı liste\n\n" +
             "🗂️ Raporlar proje klasöründe oluşturuldu.", 
             "success");
     }
@@ -741,24 +918,24 @@ public class OgrenciKayitSistemiGUI extends JFrame {
         txtCinsiyet.setText("");
     }
     
-    private void updateOgrenciSayisi() {
-        Container contentPane = getContentPane();
-        for (Component comp : contentPane.getComponents()) {
-            if (comp instanceof JPanel) {
-                JPanel panel = (JPanel) comp;
-                if (panel.getComponentCount() > 0) {
-                    Component child = panel.getComponent(0);
-                    if (child instanceof JLabel) {
-                        JLabel label = (JLabel) child;
-                        if (label.getText().contains("Toplam Öğrenci")) {
-                            label.setText(" Toplam Öğrenci: " + sistem.getToplamOgrenciSayisi() + " | BMÜ3311 Veri Yönetimi Ödevi");
-                            break;
-                        }
+   private void updateOgrenciSayisi() {
+    Container contentPane = getContentPane();
+    for (Component comp : contentPane.getComponents()) {
+        if (comp instanceof JPanel) {
+            JPanel panel = (JPanel) comp;
+            for (Component innerComp : panel.getComponents()) {
+                if (innerComp instanceof JLabel) {
+                    JLabel label = (JLabel) innerComp;
+                    if (label.getText().startsWith(" Toplam Öğrenci:")) {
+                        label.setText(" Toplam Öğrenci: " + sistem.getToplamOgrenciSayisi() + " | BMÜ3311 Veri Yönetimi Ödevi");
+                        return;
                     }
                 }
             }
         }
     }
+}
+
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

@@ -7,6 +7,11 @@ public class Ogrenci {
     private char cinsiyet;
     
     public Ogrenci(String isim, String soyad, int ogrNo, float gano, int sinif, char cinsiyet) {
+        // Öğrenci numarası format kontrolü - 9 haneli olmalı
+        if (String.valueOf(ogrNo).length() != 9) {
+            throw new IllegalArgumentException("Geçersiz öğrenci numarası! 9 haneli numara giriniz: " + ogrNo);
+        }
+        
         this.isim = isim;
         this.soyad = soyad;
         this.ogrNo = ogrNo;
@@ -22,7 +27,13 @@ public class Ogrenci {
     public void setSoyad(String soyad) { this.soyad = soyad; }
     
     public int getOgrNo() { return ogrNo; }
-    public void setOgrNo(int ogrNo) { this.ogrNo = ogrNo; }
+    public void setOgrNo(int ogrNo) { 
+        // Setter'da da format kontrolü
+        if (String.valueOf(ogrNo).length() != 9) {
+            throw new IllegalArgumentException("Geçersiz öğrenci numarası! 9 haneli numara giriniz: " + ogrNo);
+        }
+        this.ogrNo = ogrNo; 
+    }
     
     public float getGano() { return gano; }
     public void setGano(float gano) { this.gano = gano; }

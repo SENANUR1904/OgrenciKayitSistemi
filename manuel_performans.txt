@@ -1,0 +1,22 @@
+[Sun Nov 02 15:52:59 TRT 2025] Öğrenci Ekleme - Temel Mod: 1 μs | sena nur (236051037)
+[Sun Nov 02 15:52:59 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 81 μs | sena nur (236051037)
+[Sun Nov 02 15:52:59 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 14239 μs | Listelenen: 10004 öğrenci
+[Sun Nov 02 15:52:59 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 7935 μs | Listelenen: 10004 öğrenci
+[Sun Nov 02 15:54:03 TRT 2025] Öğrenci Arama (No) - Temel Mod: 5 μs | Aranan: 236051037 - Bulundu
+[Sun Nov 02 15:54:03 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 5 μs | Aranan: 236051037 - Bulundu
+[Sun Nov 02 15:54:08 TRT 2025] Öğrenci Silme - Temel Mod: 175 μs | Silinen No: 236051037
+[Sun Nov 02 15:54:08 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 5 μs | Silinen No: 236051037
+[Sun Nov 02 15:54:08 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 6715 μs | Listelenen: 10003 öğrenci
+[Sun Nov 02 15:54:08 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 4223 μs | Listelenen: 10003 öğrenci
+[Sun Nov 02 15:55:12 TRT 2025] Öğrenci Arama (No) - Temel Mod: 4 μs | Aranan: 444444444 - Bulundu
+[Sun Nov 02 15:55:12 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 4 μs | Aranan: 444444444 - Bulundu
+[Sun Nov 02 15:55:14 TRT 2025] Öğrenci Silme - Temel Mod: 238 μs | Silinen No: 444444444
+[Sun Nov 02 15:55:14 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 104 μs | Silinen No: 444444444
+[Sun Nov 02 15:55:14 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 6041 μs | Listelenen: 10002 öğrenci
+[Sun Nov 02 15:55:14 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 3924 μs | Listelenen: 10002 öğrenci
+[Sun Nov 02 15:55:44 TRT 2025] Öğrenci Arama (No) - Temel Mod: 4 μs | Aranan: 555555555 - Bulundu
+[Sun Nov 02 15:55:44 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 4 μs | Aranan: 555555555 - Bulundu
+[Sun Nov 02 15:55:45 TRT 2025] Öğrenci Silme - Temel Mod: 126 μs | Silinen No: 555555555
+[Sun Nov 02 15:55:45 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 79 μs | Silinen No: 555555555
+[Sun Nov 02 15:55:45 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 7276 μs | Listelenen: 10001 öğrenci
+[Sun Nov 02 15:55:45 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 4537 μs | Listelenen: 10001 öğrenci
