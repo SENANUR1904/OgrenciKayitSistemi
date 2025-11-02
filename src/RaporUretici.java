@@ -19,10 +19,8 @@ public class RaporUretici {
             dosyayaYaz("sinif_sirasi.txt", sinifSirali, "SINIF SIRASI");
             
             List<Ogrenci> noSirali = new ArrayList<>(ogrenciler);
-            noSirali.sort((o1, o2) -> Integer.compare(o1.getOgrNo(), o2.getOgrNo()));
+            noSirali.sort(Comparator.comparingInt(Ogrenci::getOgrNo));
             dosyayaYaz("ogrenci_no_sirali.txt", noSirali, "ÖĞRENCİ NO SIRASI");
-            
-            dosyayaYaz("bolum_sirasi.txt", ganoSirali, "BÖLÜM SIRASI (GANO'ya göre)");
             
             performansRaporuOlustur(ogrenciler, System.currentTimeMillis() - baslangicZamani);
             
@@ -40,8 +38,7 @@ public class RaporUretici {
             writer.println("----------------------------------------------------------------");
             for (Ogrenci ogr : ogrenciler) {
                 writer.printf("%-12s %-12s %-12d %-8.2f %-6d %s\n", 
-                    ogr.getIsim(), ogr.getSoyad(), ogr.getOgrNo(), 
-                    ogr.getGano(), ogr.getSinif(), 
+                    ogr.getIsim(), ogr.getSoyad(), ogr.getOgrNo(), ogr.getGano(), ogr.getSinif(), 
                     ogr.getCinsiyet() == 'E' ? "Erkek" : "Kız");
             }
         }
@@ -53,27 +50,6 @@ public class RaporUretici {
             writer.println("Oluşturulma Tarihi: " + new Date());
             writer.println("Toplam Öğrenci Sayısı: " + ogrenciler.size());
             writer.println("Rapor Oluşturma Süresi: " + sure + " ms\n");
-            
-            writer.println("=== SINIF DAĞILIMI ===");
-            for (int i = 1; i <= 4; i++) {
-                final int sinif = i;
-                long sayi = ogrenciler.stream().filter(o -> o.getSinif() == sinif).count();
-                writer.println(sinif + ". Sınıf: " + sayi + " öğrenci");
-            }
-            
-            writer.println("\n=== CİNSİYET DAĞILIMI ===");
-            long erkek = ogrenciler.stream().filter(o -> o.getCinsiyet() == 'E').count();
-            long kiz = ogrenciler.stream().filter(o -> o.getCinsiyet() == 'K').count();
-            writer.println("Erkek: " + erkek + " öğrenci");
-            writer.println("Kız: " + kiz + " öğrenci");
-            
-            writer.println("\n=== GANO İSTATİSTİKLERİ ===");
-            double ortalama = ogrenciler.stream().mapToDouble(Ogrenci::getGano).average().orElse(0);
-            double max = ogrenciler.stream().mapToDouble(Ogrenci::getGano).max().orElse(0);
-            double min = ogrenciler.stream().mapToDouble(Ogrenci::getGano).min().orElse(0);
-            writer.printf("Ortalama GANO: %.2f\n", ortalama);
-            writer.printf("En Yüksek GANO: %.2f\n", max);
-            writer.printf("En Düşük GANO: %.2f\n", min);
         }
     }
     
