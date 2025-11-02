@@ -1,6 +1,6 @@
 === Öğrenci numarasına göre sıralı öğrenciler ===
-Tarih: Sun Nov 02 15:56:25 TRT 2025
-Toplam Öğrenci: 10001
+Tarih: Sun Nov 02 16:16:13 TRT 2025
+Toplam Öğrenci: 10000
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
 Seda         Koç          236000055    2,78     4      K
@@ -842,7 +842,6 @@ Fatma        Aslan        236080598    3,84     3      K
 Deniz        Demir        236080686    2,70     1      K
 Hasan        Doğan        236080887    1,48     4      E
 Ceren        Öztürk       236081205    1,52     4      K
-Hasan        Acar         236081366    4,00     4      E
 Ceren        Aslan        236081404    2,67     4      K
 Fatma        Koç          236081424    2,29     2      K
 Hasan        Yılmaz       236081527    1,79     1      E
@@ -10005,4 +10004,4 @@ Mustafa      Çelik        236999645    3,27     1      E
 Meryem       Demir        236999770    1,93     2      K
 Test         Öğrenci      999007442    3,50     1      E
 
-Toplam: 10001 öğrenci
+Toplam: 10000 öğrenci

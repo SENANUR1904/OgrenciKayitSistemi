@@ -1,6 +1,6 @@
 === İsime göre sıralı öğrenciler ===
-Tarih: Sun Nov 02 15:56:25 TRT 2025
-Toplam Öğrenci: 10001
+Tarih: Sun Nov 02 16:16:13 TRT 2025
+Toplam Öğrenci: 10000
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
 Ahmet        Acar         236157188    1,32     2      E
@@ -5063,7 +5063,6 @@ Hasan        Acar         236796014    1,85     2      E
 Hasan        Acar         236065706    3,00     3      E
 Hasan        Acar         236678596    3,42     3      E
 Hasan        Acar         236782955    1,25     1      E
-Hasan        Acar         236081366    4,00     4      E
 Hasan        Acar         236905288    1,48     4      E
 Hasan        Acar         236103143    3,30     2      E
 Hasan        Acar         236930715    1,45     4      E
@@ -10005,4 +10004,4 @@ Zeynep       Şahin        236245592    1,09     2      K
 İrem         Şahin        236078694    1,22     4      K
 İrem         Şahin        236973078    1,22     4      K
 
-Toplam: 10001 öğrenci
+Toplam: 10000 öğrenci

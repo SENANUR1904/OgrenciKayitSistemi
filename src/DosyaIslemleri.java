@@ -3,41 +3,37 @@ import java.util.*;
 
 public class DosyaIslemleri {
     private static final String DOSYA_ADI = "ogrenciler.txt";
+    private static final String BASLANGIC_DOSYASI = "baslangic_ogrenciler.txt";
 
     public static List<Ogrenci> ogrencileriDosyadanOku() {
-    List<Ogrenci> ogrenciler = new ArrayList<>();
-    File dosya = new File(DOSYA_ADI);
-    if (!dosya.exists()) return ogrenciler;
+        // Her zaman başlangıç dosyasını kullan, ana dosyayı değil
+        File baslangicDosya = new File(BASLANGIC_DOSYASI);
+        if (!baslangicDosya.exists()) {
+            return baslangicVerisiOlustur();
+        }
 
-    try (BufferedReader reader = new BufferedReader(new FileReader(dosya))) {
-        String satir;
-        int gecersizKayit = 0;
-        while ((satir = reader.readLine()) != null) {
-            try {
-                Ogrenci ogr = Ogrenci.dosyadanOku(satir);
-                if (ogr != null) {
-                    // Dosyadan okunan öğrenci numarasını kontrol et
-                    if (String.valueOf(ogr.getOgrNo()).length() == 9) {
+        List<Ogrenci> ogrenciler = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(baslangicDosya))) {
+            String satir;
+            while ((satir = reader.readLine()) != null) {
+                try {
+                    Ogrenci ogr = Ogrenci.dosyadanOku(satir);
+                    if (ogr != null && String.valueOf(ogr.getOgrNo()).length() == 9) {
                         ogrenciler.add(ogr);
-                    } else {
-                        gecersizKayit++;
-                        System.out.println("Geçersiz öğrenci numarası atlandı: " + ogr.getOgrNo());
                     }
+                } catch (Exception e) {
+                    // Geçersiz kayıtları atla
                 }
-            } catch (Exception e) {
-                gecersizKayit++;
             }
+            System.out.println("✅ Başlangıç verileri yüklendi: " + ogrenciler.size() + " öğrenci");
+        } catch (IOException e) {
+            System.out.println("Başlangıç dosyası okuma hatası: " + e.getMessage());
         }
-        if (gecersizKayit > 0) {
-            System.out.println(gecersizKayit + " geçersiz kayıt atlandı.");
-        }
-    } catch (IOException e) {
-        System.out.println("Dosya okuma hatası: " + e.getMessage());
+        return ogrenciler;
     }
-    return ogrenciler;
-}
 
     public static void ogrencileriDosyayaYaz(List<Ogrenci> ogrenciler) {
+        // Sadece geçici işlemler için ana dosyaya yaz, başlangıç dosyasını değiştirme
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(DOSYA_ADI)))) {
             for (Ogrenci ogr : ogrenciler) {
                 writer.println(ogr.dosyaFormatinda());
@@ -48,9 +44,6 @@ public class DosyaIslemleri {
     }
 
     public static List<Ogrenci> baslangicVerisiOlustur() {
-        File dosya = new File(DOSYA_ADI);
-        if (dosya.exists()) dosya.delete();
-
         String[] erkekIsimler = {"Ali","Mehmet","Mustafa","Ahmet","Hasan","Yusuf","Emre","Burak","Kerem","Mert"};
         String[] kizIsimler = {"Ayşe","Fatma","Zeynep","Elif","Meryem","Ebru","Ceren","Seda","İrem","Deniz"};
         String[] soyadlar = {"Yılmaz","Kaya","Demir","Çelik","Şahin","Koç","Acar","Öztürk","Aslan","Doğan"};
@@ -67,7 +60,7 @@ public class DosyaIslemleri {
             int ogrNo;
             do {
                 ogrNo = 236000000 + r.nextInt(1_000_000);
-            } while (kullanilanNumaralar.contains(ogrNo));
+            } while (kullanilanNumaralar.contains(ogrNo) || String.valueOf(ogrNo).length() != 9);
             kullanilanNumaralar.add(ogrNo);
 
             float gano = 1.0f + r.nextFloat() * 3.0f;
@@ -76,8 +69,23 @@ public class DosyaIslemleri {
             ogrenciler.add(new Ogrenci(isim, soyad, ogrNo, gano, sinif, cinsiyet));
         }
 
-        ogrencileriDosyayaYaz(ogrenciler);
-        System.out.println("✅ 10.000 öğrenci başarıyla oluşturuldu ve dosyaya kaydedildi!");
+        // Başlangıç dosyasına yaz
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(BASLANGIC_DOSYASI)))) {
+            for (Ogrenci ogr : ogrenciler) {
+                writer.println(ogr.dosyaFormatinda());
+            }
+        } catch (IOException e) {
+            System.out.println("Başlangıç dosyası yazma hatası: " + e.getMessage());
+        }
+        
+        System.out.println("✅ 10.000 öğrenci başarıyla oluşturuldu!");
         return ogrenciler;
+    }
+    
+    public static void baslangicVerilerineDon() {
+        // Ana dosyayı sil, bir sonraki çalıştırmada başlangıç dosyası kullanılacak
+        File dosya = new File(DOSYA_ADI);
+        if (dosya.exists()) dosya.delete();
+        System.out.println("✅ Başlangıç verilerine dönüldü!");
     }
 }
