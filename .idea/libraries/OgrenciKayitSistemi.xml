@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OgrenciKayitSistemi">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/OgrenciKayitSistemi.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

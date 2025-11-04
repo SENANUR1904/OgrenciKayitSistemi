@@ -77,11 +77,11 @@ public class DosyaIslemleri {
         } catch (IOException e) {
             System.out.println("Başlangıç dosyası yazma hatası: " + e.getMessage());
         }
-        
+
         System.out.println("✅ 10.000 öğrenci başarıyla oluşturuldu!");
         return ogrenciler;
     }
-    
+
     public static void baslangicVerilerineDon() {
         // Ana dosyayı sil, bir sonraki çalıştırmada başlangıç dosyası kullanılacak
         File dosya = new File(DOSYA_ADI);

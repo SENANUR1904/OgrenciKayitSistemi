@@ -1,70 +1,16 @@
-[Sun Nov 02 20:36:26 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 29466 μs | Listelenen: 10000 öğrenci
-[Sun Nov 02 20:36:26 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 13715 μs | Listelenen: 10000 öğrenci
-[Sun Nov 02 20:41:07 TRT 2025] Öğrenci Ekleme - Temel Mod: 3 μs | qqq aaa (999999999)
-[Sun Nov 02 20:41:07 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 1 μs | qqq aaa (999999999)
-[Sun Nov 02 20:41:07 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 9686 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:41:07 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 10821 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:41:18 TRT 2025] Öğrenci Arama (No) - Temel Mod: 5 μs | Aranan: 999999999 - Bulundu
-[Sun Nov 02 20:41:18 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 4 μs | Aranan: 999999999 - Bulundu
-[Sun Nov 02 20:42:53 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 83 μs | Aranan: 999999999 - Bulunamadı
-[Sun Nov 02 20:42:53 TRT 2025] Öğrenci Arama (No) - Temel Mod: 7 μs | Aranan: 999999999 - Bulunamadı
-[Sun Nov 02 20:53:53 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 14912 μs | Listelenen: 10000 öğrenci
-[Sun Nov 02 20:53:53 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 6330 μs | Listelenen: 10000 öğrenci
-[Sun Nov 02 20:54:43 TRT 2025] Öğrenci Ekleme - Temel Mod: 5 μs | y z (222222222)
-[Sun Nov 02 20:54:43 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 320 μs | y z (222222222)
-[Sun Nov 02 20:54:43 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 9055 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:54:43 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 6369 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:55:11 TRT 2025] Öğrenci Arama (No) - Temel Mod: 10 μs | Aranan: 222222222 - Bulundu
-[Sun Nov 02 20:55:11 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 16 μs | Aranan: 222222222 - Bulundu
-[Sun Nov 02 20:55:16 TRT 2025] Öğrenci Arama (İsim) - Temel Mod: 2711 μs | Aranan: 'y' - Bulunan: 1 öğrenci
-[Sun Nov 02 20:55:22 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 6384 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:55:22 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 3193 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 20:58:28 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 13 μs | Aranan: 222222222 - Bulunamadı
-[Sun Nov 02 20:58:28 TRT 2025] Öğrenci Arama (No) - Temel Mod: 671 μs | Aranan: 222222222 - Bulunamadı
-[Sun Nov 02 21:00:53 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 7 μs | www z (122222222)
-[Sun Nov 02 21:00:53 TRT 2025] Öğrenci Ekleme - Temel Mod: 1 μs | www z (122222222)
-[Sun Nov 02 21:00:53 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 6090 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 21:00:53 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 3720 μs | Listelenen: 10001 öğrenci
-[Sun Nov 02 21:01:06 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 51 μs | Aranan: 122222222 - Bulundu
-[Sun Nov 02 21:01:06 TRT 2025] Öğrenci Arama (No) - Temel Mod: 10 μs | Aranan: 122222222 - Bulundu
-[Sun Nov 02 21:01:13 TRT 2025] Öğrenci Arama (İsim) - Gelişmiş Mod: 2765 μs | Aranan: 'www' - Bulunan: 1 öğrenci
-[Sun Nov 02 21:02:11 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 2 μs | Test Öğrenci (999008516)
-[Sun Nov 02 21:02:11 TRT 2025] Öğrenci Ekleme - Temel Mod: 2 μs | Test Öğrenci (999008516)
-[Sun Nov 02 21:02:14 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 2 μs | Test Öğrenci (999006306)
-[Sun Nov 02 21:02:14 TRT 2025] Öğrenci Ekleme - Temel Mod: 2 μs | Test Öğrenci (999006306)
-[Sun Nov 02 21:02:16 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 3340 μs | Silinen No: 236371882
-[Sun Nov 02 21:02:16 TRT 2025] Öğrenci Silme - Temel Mod: 1786 μs | Silinen No: 236371882
-[Sun Nov 02 21:02:16 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 2 μs | Ayşe Doğan (236371882)
-[Sun Nov 02 21:02:16 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Ayşe Doğan (236371882)
-[Sun Nov 02 21:02:34 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 1203 μs | Silinen No: 236525023
-[Sun Nov 02 21:02:34 TRT 2025] Öğrenci Silme - Temel Mod: 1135 μs | Silinen No: 236525023
-[Sun Nov 02 21:02:34 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 1 μs | Seda Şahin (236525023)
-[Sun Nov 02 21:02:34 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Seda Şahin (236525023)
-[Sun Nov 02 21:02:36 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 1049 μs | Silinen No: 236847548
-[Sun Nov 02 21:02:36 TRT 2025] Öğrenci Silme - Temel Mod: 732 μs | Silinen No: 236847548
-[Sun Nov 02 21:02:36 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 1 μs | Mehmet Aslan (236847548)
-[Sun Nov 02 21:02:36 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Mehmet Aslan (236847548)
-[Sun Nov 02 21:02:37 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 439 μs | Silinen No: 236449360
-[Sun Nov 02 21:02:37 TRT 2025] Öğrenci Silme - Temel Mod: 282 μs | Silinen No: 236449360
-[Sun Nov 02 21:02:37 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 0 μs | Mustafa Yılmaz (236449360)
-[Sun Nov 02 21:02:37 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Mustafa Yılmaz (236449360)
-[Sun Nov 02 21:02:39 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 519 μs | Silinen No: 236112552
-[Sun Nov 02 21:02:39 TRT 2025] Öğrenci Silme - Temel Mod: 293 μs | Silinen No: 236112552
-[Sun Nov 02 21:02:39 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 2 μs | Mustafa Öztürk (236112552)
-[Sun Nov 02 21:02:39 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Mustafa Öztürk (236112552)
-[Sun Nov 02 21:02:42 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 5 μs | Aranan: 236891931 - Bulundu
-[Sun Nov 02 21:02:42 TRT 2025] Öğrenci Arama (No) - Temel Mod: 3 μs | Aranan: 236891931 - Bulundu
-[Sun Nov 02 21:02:46 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 5 μs | Aranan: 236575462 - Bulundu
-[Sun Nov 02 21:02:46 TRT 2025] Öğrenci Arama (No) - Temel Mod: 5 μs | Aranan: 236575462 - Bulundu
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 1 μs | Test Öğrenci (999008967)
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Ekleme - Temel Mod: 1 μs | Test Öğrenci (999008967)
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 1 μs | Aranan: 236528653 - Bulundu
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Arama (No) - Temel Mod: 1 μs | Aranan: 236528653 - Bulundu
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Silme - Gelişmiş Mod: 95 μs | Silinen No: 236883889
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Silme - Temel Mod: 71 μs | Silinen No: 236883889
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Ekleme - Gelişmiş Mod: 0 μs | Deniz Koç (236883889)
-[Sun Nov 02 21:02:50 TRT 2025] Öğrenci Ekleme - Temel Mod: 0 μs | Deniz Koç (236883889)
-[Sun Nov 02 21:02:50 TRT 2025] Tüm Öğrencileri Listeleme - Gelişmiş Mod: 3274 μs | Listelenen: 10004 öğrenci
-[Sun Nov 02 21:02:50 TRT 2025] Tüm Öğrencileri Listeleme - Temel Mod: 3541 μs | Listelenen: 10004 öğrenci
-[Sun Nov 02 21:03:30 TRT 2025] Öğrenci Arama (No) - Gelişmiş Mod: 15 μs | Aranan: 122222222 - Bulunamadı
-[Sun Nov 02 21:03:30 TRT 2025] Öğrenci Arama (No) - Temel Mod: 1359 μs | Aranan: 122222222 - Bulunamadı
+[Tue Nov 04 20:56:36 TRT 2025] Sınıf Sıralı Listeleme - Gelişmiş Mod: 842 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:56:56 TRT 2025] GANO Sıralı Listeleme - Gelişmiş Mod: 819 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:57:12 TRT 2025] Cinsiyet Sıralı Listeleme - Gelişmiş Mod: 847 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:57:22 TRT 2025] İsim Sıralı Listeleme - Gelişmiş Mod: 889 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:57:26 TRT 2025] Öğrenci No Sıralı Listeleme - Gelişmiş Mod: 854 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:58:51 TRT 2025] Sınıf Sıralı Listeleme - Temel Mod: 75739 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:02 TRT 2025] GANO Sıralı Listeleme - Temel Mod: 183334 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:05 TRT 2025] Cinsiyet Sıralı Listeleme - Temel Mod: 299479 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:28 TRT 2025] İsim Sıralı Listeleme - Temel Mod: 751192 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:37 TRT 2025] Öğrenci No Sıralı Listeleme - Temel Mod: 20452 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:47 TRT 2025] GANO Sıralı Listeleme - Temel Mod: 163730 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 20:59:52 TRT 2025] GANO Sıralı Listeleme - Temel Mod: 159784 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 23:10:08 TRT 2025] Sınıf Sıralı Listeleme - Gelişmiş Mod: 882 μs | Listelenen: 10000 öğrenci
+[Tue Nov 04 23:10:18 TRT 2025] GANO Sıralı Listeleme - Gelişmiş Mod: 845 μs | Listelenen: 10000 öğrenci
+[Tue Nov 04 23:10:22 TRT 2025] Cinsiyet Sıralı Listeleme - Gelişmiş Mod: 857 μs | Listelenen: 10000 öğrenci
+[Tue Nov 04 23:11:12 TRT 2025] Öğrenci No Sıralı Listeleme - Gelişmiş Mod: 866 μs | Listelenen: 10000 öğrenci
