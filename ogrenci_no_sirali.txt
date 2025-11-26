@@ -1,6 +1,6 @@
 === Öğrenci numarasına göre sıralı öğrenciler ===
-Tarih: Tue Nov 04 23:11:16 TRT 2025
-Toplam Öğrenci: 10000
+Tarih: Tue Nov 04 23:48:27 TRT 2025
+Toplam Öğrenci: 10001
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
 Mustafa      Doğan        236000254    1,11     3      E
@@ -477,6 +477,7 @@ Kerem        Öztürk       236050451    3,10     4      E
 Mustafa      Acar         236050648    1,73     2      E
 Mustafa      Öztürk       236050962    1,78     3      E
 Zeynep       Çelik        236051032    3,63     4      K
+sena         nur          236051037    4,00     3      K
 Mustafa      Doğan        236051207    3,49     4      E
 Mert         Yılmaz       236051534    1,93     1      E
 Ahmet        Şahin        236051577    2,21     1      E
@@ -10004,4 +10005,4 @@ Mert         Demir        236999806    2,15     4      E
 Deniz        Çelik        236999839    2,81     2      K
 Ali          Yılmaz       236999859    2,84     4      E
 
-Toplam: 10000 öğrenci
+Toplam: 10001 öğrenci

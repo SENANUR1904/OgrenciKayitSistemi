@@ -1,7 +1,7 @@
 === HASH TABLOSU RAPORU ===
-Tarih: Tue Nov 04 23:11:17 TRT 2025
+Tarih: Tue Nov 04 23:48:27 TRT 2025
 === GELİŞMİŞ MOD (HashMap) ===
-Toplam Öğrenci: 10000
+Toplam Öğrenci: 10001
 Tablo Boyutu: 13003
 Doluluk Oranı: 76,91%
 Çalışma Prensibi: HashMap - Anahtar-Değer çiftleri
@@ -3087,6 +3087,7 @@ Anahtar: 236886619 -> Mustafa    Doğan      236886619  2,70   3    E
 Anahtar: 236018260 -> Yusuf      Demir      236018260  1,17   2    E
 Anahtar: 236051032 -> Zeynep     Çelik      236051032  3,63   4    K
 Anahtar: 236853842 -> Meryem     Öztürk     236853842  2,28   3    K
+Anahtar: 236051037 -> sena       nur        236051037  4,00   3    K
 Anahtar: 236919377 -> Seda       Doğan      236919377  3,02   4    K
 Anahtar: 236083776 -> Kerem      Öztürk     236083776  3,58   1    E
 Anahtar: 236018242 -> Ceren      Doğan      236018242  3,45   3    K

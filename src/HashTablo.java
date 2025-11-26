@@ -27,17 +27,16 @@ public class HashTablo {
         if (ogr == null) return false;
 
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - HashMap ile (O(1))
+
             if (gelismisTablo.containsKey(ogr.getOgrNo())) return false;
             gelismisTablo.put(ogr.getOgrNo(), ogr);
             tumOgrenciler.add(ogr);
             return true;
         } else {
-            // TEMEL MOD - Dizi ile Linear Probing (O(n))
             int index = hashHesapla(ogr.getOgrNo());
             int probe = 0;
             while (anaTablo[index] != null) {
-                probe++;
+                probe++;//kaç defa çakışma var
                 index = (index + 1) % TABLO_BOYUTU;
                 cakismaSayisi++;
                 if (probe >= TABLO_BOYUTU) return false;
@@ -50,10 +49,8 @@ public class HashTablo {
 
     public Ogrenci ogrenciNoIleBul(int ogrNo) {
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - HashMap ile (O(1))
             return gelismisTablo.get(ogrNo);
         } else {
-            // TEMEL MOD - Dizi ile Linear Probing (O(n))
             int index = hashHesapla(ogrNo);
             for (int i = 0; i < TABLO_BOYUTU; i++) {
                 int idx = (index + i) % TABLO_BOYUTU;
@@ -67,7 +64,6 @@ public class HashTablo {
 
     public boolean ogrenciSil(int ogrNo) {
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - HashMap ile (O(1))
             Ogrenci sil = gelismisTablo.remove(ogrNo);
             if (sil != null) {
                 tumOgrenciler.removeIf(ogrenci -> ogrenci.getOgrNo() == ogrNo);
@@ -75,7 +71,6 @@ public class HashTablo {
             }
             return false;
         } else {
-            // TEMEL MOD - Dizi ile Linear Probing (O(n))
             int index = hashHesapla(ogrNo);
             for (int i = 0; i < TABLO_BOYUTU; i++) {
                 int idx = (index + i) % TABLO_BOYUTU;
@@ -95,31 +90,29 @@ public class HashTablo {
         ogrenciEkle(ogr);
     }
 
-    // NORMAL LİSTELEME - Öğrencileri eklenme sırasına göre getir
     public List<Ogrenci> tumOgrencileriGetir() {
         return new ArrayList<>(tumOgrenciler);
     }
 
-    // GANO SIRALI LİSTELEME - İKİ FARKLI ALGORİTMA
     public List<Ogrenci> ganoSiralıGetir() {
         long baslangic = System.nanoTime();
         List<Ogrenci> siraliListe;
 
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - QuickSort benzeri hızlı sıralama
+
             siraliListe = new ArrayList<>(tumOgrenciler);
             Collections.sort(siraliListe, (o1, o2) -> Float.compare(o2.getGano(), o1.getGano()));
         } else {
-            // BASIC MOD - Önce null olmayanları filtrele, sonra sırala
+
             int count = 0;
-// Önce null olmayan öğrenci sayısını bul
+
             for (Ogrenci ogr : anaTablo) {
                 if (ogr != null) {
                     count++;
                 }
             }
 
-// Sadece null olmayan öğrenciler için dizi oluştur
+
             Ogrenci[] doluOgrenciler = new Ogrenci[count];
             int index = 0;
             for (Ogrenci ogr : anaTablo) {
@@ -128,7 +121,7 @@ public class HashTablo {
                 }
             }
 
-// Şimdi sadece dolu öğrencilerle sıralama yap
+
             for (int i = 0; i < doluOgrenciler.length - 1; i++) {
                 for (int j = 0; j < doluOgrenciler.length - i - 1; j++) {
                     if (doluOgrenciler[j].getGano() < doluOgrenciler[j + 1].getGano()) {
@@ -149,13 +142,13 @@ public class HashTablo {
         return siraliListe;
     }
 
-    // İSİM SIRALI LİSTELEME - İKİ FARKLI ALGORİTMA
+
     public List<Ogrenci> isimSiralıGetir() {
         long baslangic = System.nanoTime();
         List<Ogrenci> siraliListe;
 
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - Collections.sort (hızlı)
+
             siraliListe = new ArrayList<>(tumOgrenciler);
             Collections.sort(siraliListe, (o1, o2) -> {
                 int isimKarsilastirma = o1.getIsim().compareToIgnoreCase(o2.getIsim());
@@ -163,17 +156,15 @@ public class HashTablo {
                 return o1.getSoyad().compareToIgnoreCase(o2.getSoyad());
             });
         } else {
-            // TEMEL MOD - Selection Sort (yavaş)
-            // BASIC MOD - Önce null olmayanları filtrele, sonra Selection Sort yap
             int count = 0;
-// Önce null olmayan öğrenci sayısını bul
+
             for (Ogrenci ogr : anaTablo) {
                 if (ogr != null) {
                     count++;
                 }
             }
 
-// Sadece null olmayan öğrenciler için dizi oluştur
+
             Ogrenci[] doluOgrenciler = new Ogrenci[count];
             int index = 0;
             for (Ogrenci ogr : anaTablo) {
@@ -211,26 +202,26 @@ public class HashTablo {
         return siraliListe;
     }
 
-    // SINIF SIRALI LİSTELEME - İKİ FARKLI ALGORİTMA
+
     public List<Ogrenci> sinifSiralıGetir() {
         long baslangic = System.nanoTime();
         List<Ogrenci> siraliListe;
 
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - Collections.sort (hızlı)
+
             siraliListe = new ArrayList<>(tumOgrenciler);
             Collections.sort(siraliListe, Comparator.comparingInt(Ogrenci::getSinif));
         } else {
-            // BASIC MOD - Önce null olmayanları filtrele, sonra Insertion Sort yap
+
             int count = 0;
-// Önce null olmayan öğrenci sayısını bul
+
             for (Ogrenci ogr : anaTablo) {
                 if (ogr != null) {
                     count++;
                 }
             }
 
-// Sadece null olmayan öğrenciler için dizi oluştur
+
             Ogrenci[] doluOgrenciler = new Ogrenci[count];
             int index = 0;
             for (Ogrenci ogr : anaTablo) {
@@ -260,13 +251,11 @@ public class HashTablo {
         return siraliListe;
     }
 
-    // CİNSİYET SIRALI LİSTELEME - İKİ FARKLI ALGORİTMA
     public List<Ogrenci> cinsiyetSiralıGetir() {
         long baslangic = System.nanoTime();
         List<Ogrenci> siraliListe;
 
-        if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - Collections.sort (hızlı)
+        if (gelismisVeriTipi){
             siraliListe = new ArrayList<>(tumOgrenciler);
             Collections.sort(siraliListe, (o1, o2) -> {
                 int cinsiyetKarsilastirma = Character.compare(o1.getCinsiyet(), o2.getCinsiyet());
@@ -274,16 +263,14 @@ public class HashTablo {
                 return Float.compare(o2.getGano(), o1.getGano());
             });
         } else {
-            // BASIC MOD - Önce null olmayanları filtrele, sonra Bubble Sort yap
+
             int count = 0;
-// Önce null olmayan öğrenci sayısını bul
             for (Ogrenci ogr : anaTablo) {
                 if (ogr != null) {
                     count++;
                 }
             }
 
-// Sadece null olmayan öğrenciler için dizi oluştur
             Ogrenci[] doluOgrenciler = new Ogrenci[count];
             int index = 0;
             for (Ogrenci ogr : anaTablo) {
@@ -292,8 +279,7 @@ public class HashTablo {
                 }
             }
 
-// Şimdi sadece dolu öğrencilerle BUBBLE SORT yap
-            for (int i = 0; i < doluOgrenciler.length - 1; i++) {
+            for (int i = 0; i < doluOgrenciler.length - 1; i++) {//buble
                 for (int j = 0; j < doluOgrenciler.length - i - 1; j++) {
                     Ogrenci o1 = doluOgrenciler[j];
                     Ogrenci o2 = doluOgrenciler[j + 1];
@@ -323,18 +309,15 @@ public class HashTablo {
         return siraliListe;
     }
 
-    // ÖĞRENCİ NO SIRALI LİSTELEME - İKİ FARKLI ALGORİTMA
     public List<Ogrenci> ogrenciNoSiralıGetir() {
         long baslangic = System.nanoTime();
         List<Ogrenci> siraliListe;
 
         if (gelismisVeriTipi) {
-            // GELİŞMİŞ MOD - Collections.sort (hızlı)
             siraliListe = new ArrayList<>(tumOgrenciler);
             Collections.sort(siraliListe, Comparator.comparingInt(Ogrenci::getOgrNo));
         } else {
-            // TEMEL MOD - Merge Sort (orta hız)
-            // BASIC MOD - Merge Sort (sadece dolu öğrencilerle)
+
             int count = 0;
             for (Ogrenci ogr : anaTablo) {
                 if (ogr != null) count++;
@@ -420,7 +403,6 @@ public class HashTablo {
             sb.append("Çalışma Prensibi: HashMap - Anahtar-Değer çiftleri\n");
             sb.append("Ortalama İşlem Süresi: O(1) - Çok Hızlı\n\n");
 
-            // --- Tüm kayıtları göster ---
             for (Map.Entry<Integer, Ogrenci> e : gelismisTablo.entrySet()) {
                 sb.append("Anahtar: ").append(e.getKey())
                         .append(" -> ").append(e.getValue()).append("\n");
@@ -435,7 +417,7 @@ public class HashTablo {
             sb.append("Çalışma Prensibi: Dizi - Linear Probing ile çakışma çözümü\n");
             sb.append("Ortalama İşlem Süresi: O(n) - Yavaş\n\n");
 
-            // --- Tüm dolu hücreleri göster ---
+
             for (int i = 0; i < TABLO_BOYUTU; i++) {
                 if (anaTablo[i] != null) {
                     int orj = hashHesapla(anaTablo[i].getOgrNo());

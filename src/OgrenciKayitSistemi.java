@@ -22,39 +22,38 @@ public class OgrenciKayitSistemi {
         digerModTablo.tumOgrencileriYukle(ogrenciler);
     }
 
-    // SENKRONİZE ÖĞRENCİ EKLEME
     public boolean ogrenciEkle(Ogrenci ogr) {
         if (ogr == null) return false;
 
-        // Her iki moda da ekle
+
         boolean mevcutSonuc = hashTablo.ogrenciEkle(ogr);
         boolean digerSonuc = digerModTablo.ogrenciEkle(ogr);
 
         if (mevcutSonuc && digerSonuc) {
-            // Başarılıysa dosyaya yaz
+
             DosyaIslemleri.ogrencileriDosyayaYaz(hashTablo.tumOgrencileriGetir());
             return true;
         } else {
-            // Başarısızsa rollback
+
             if (mevcutSonuc) hashTablo.ogrenciSil(ogr.getOgrNo());
             if (digerSonuc) digerModTablo.ogrenciSil(ogr.getOgrNo());
             return false;
         }
     }
 
-    // SENKRONİZE ÖĞRENCİ GÜNCELLEME
+
     public void ogrenciGuncelle(Ogrenci ogr) {
         if (ogr == null) return;
 
-        // Her iki modda da güncelle
+
         hashTablo.ogrenciGuncelle(ogr);
         digerModTablo.ogrenciGuncelle(ogr);
 
-        // Dosyaya yaz
+
         DosyaIslemleri.ogrencileriDosyayaYaz(hashTablo.tumOgrencileriGetir());
     }
 
-    // ÖĞRENCİ NO İLE ARAMA - Aktif modu kullan
+
     public Ogrenci ogrenciNoIleAra(int ogrNo) {
         if (String.valueOf(ogrNo).length() != 9) {
             System.out.println("Hata: Geçersiz öğrenci numarası formatı! 9 haneli numara giriniz: " + ogrNo);
@@ -68,11 +67,8 @@ public class OgrenciKayitSistemi {
             return digerModTablo.ogrenciNoIleBul(ogrNo);
         }
 
-        // Sadece aktif modda ara (performans karşılaştırması için)
-
     }
 
-    // İSİM İLE ARAMA
     public List<Ogrenci> adIleAra(String isim) {
         List<Ogrenci> sonuclar = new ArrayList<>();
         if(gelismisVeriTipi){
@@ -91,39 +87,35 @@ public class OgrenciKayitSistemi {
 
         }
 
-        // Aktif modda ara
 
 
-        // GANO'ya göre sırala
         sonuclar.sort((o1, o2) -> Float.compare(o2.getGano(), o1.getGano()));
 
         return sonuclar;
     }
 
-    // SENKRONİZE ÖĞRENCİ SİLME
+
     public boolean ogrenciSil(int ogrNo) {
         if (String.valueOf(ogrNo).length() != 9) {
             System.out.println("Hata: Geçersiz öğrenci numarası formatı! 9 haneli numara giriniz: " + ogrNo);
             return false;
         }
 
-        // Her iki moddan da sil
         boolean mevcutSonuc = hashTablo.ogrenciSil(ogrNo);
         boolean digerSonuc = digerModTablo.ogrenciSil(ogrNo);
 
         if (mevcutSonuc && digerSonuc) {
-            // Başarılıysa dosyaya yaz
             DosyaIslemleri.ogrencileriDosyayaYaz(hashTablo.tumOgrencileriGetir());
             return true;
         } else {
-            // Başarısızsa rollback
+
             if (mevcutSonuc) {
                 // Mevcut modda silinmişse diğer moddan alıp geri ekle
                 Ogrenci yedek = digerModTablo.ogrenciNoIleBul(ogrNo);
                 if (yedek != null) hashTablo.ogrenciEkle(yedek);
             }
             if (digerSonuc) {
-                // Diğer modda silinmişse mevcut moddan alıp geri ekle
+
                 Ogrenci yedek = hashTablo.ogrenciNoIleBul(ogrNo);
                 if (yedek != null) digerModTablo.ogrenciEkle(yedek);
             }
@@ -131,12 +123,12 @@ public class OgrenciKayitSistemi {
         }
     }
 
-    // NORMAL LİSTELEME (eklenme sırası)
+
     public List<Ogrenci> tumOgrencileriGetir() {
         return hashTablo.tumOgrencileriGetir();
     }
 
-    // SIRALI LİSTELEME METOTLARI
+
     public List<Ogrenci> ganoSiralıGetir() {
         List<Ogrenci> sonuclar = new ArrayList<>();
         if(gelismisVeriTipi){
@@ -187,7 +179,7 @@ public class OgrenciKayitSistemi {
         return sonuclar;
     }
 
-    // FİLTRELEME METOTLARI
+
     public List<Ogrenci> sinifaGoreGetir(int sinif) {
         List<Ogrenci> sonuc = new ArrayList<>();
         for (Ogrenci ogr : hashTablo.tumOgrencileriGetir()) {
@@ -211,7 +203,13 @@ public class OgrenciKayitSistemi {
     }
 
     public String hashTablosunuGoster() {
-        return hashTablo.hashTablosunuGoster();
+        String goster;
+        if(gelismisVeriTipi){
+            goster=hashTablo.hashTablosunuGoster();
+        }else{
+            goster=digerModTablo.hashTablosunuGoster();
+        }
+        return goster;
     }
 
     public void raporlariOlustur() {
@@ -265,16 +263,15 @@ public class OgrenciKayitSistemi {
         return sb.toString();
     }
 
-    // BAŞLANGIÇ VERİLERİNE DÖN
+
     public void baslangicVerilerineDon() {
         DosyaIslemleri.baslangicVerilerineDon();
-        // Her iki modu da yeniden yükle
         List<Ogrenci> ogrenciler = DosyaIslemleri.ogrencileriDosyadanOku();
         hashTablo.tumOgrencileriYukle(ogrenciler);
         digerModTablo.tumOgrencileriYukle(ogrenciler);
     }
 
-    // PERFORMANS KARŞILAŞTIRMA TESTLERİ
+
     public String performansTestiEkleme() {
         StringBuilder sonuc = new StringBuilder();
         sonuc.append("=== EKLEME PERFORMANS TESTİ ===\n\n");
@@ -283,7 +280,7 @@ public class OgrenciKayitSistemi {
         int testNo = 900000000 + r.nextInt(100000);
         Ogrenci testOgr = new Ogrenci("Test", "Ogrenci", testNo, 3.5f, 1, 'E');
 
-        // Gelişmiş mod testi
+
         HashTablo tempGelismis = new HashTablo(true);
         List<Ogrenci> base = DosyaIslemleri.ogrencileriDosyadanOku();
         tempGelismis.tumOgrencileriYukle(base);
@@ -292,7 +289,7 @@ public class OgrenciKayitSistemi {
         boolean gSonuc = tempGelismis.ogrenciEkle(testOgr);
         long gSure = System.nanoTime() - gBas;
 
-        // Temel mod testi
+
         HashTablo tempTemel = new HashTablo(false);
         tempTemel.tumOgrencileriYukle(base);
 
@@ -318,7 +315,7 @@ public class OgrenciKayitSistemi {
         Ogrenci rast = ogrenciler.get(r.nextInt(ogrenciler.size()));
         int arananNo = rast.getOgrNo();
 
-        // Gelişmiş mod testi
+
         HashTablo tempG = new HashTablo(true);
         List<Ogrenci> base = DosyaIslemleri.ogrencileriDosyadanOku();
         tempG.tumOgrencileriYukle(base);
@@ -327,7 +324,7 @@ public class OgrenciKayitSistemi {
         Ogrenci gBul = tempG.ogrenciNoIleBul(arananNo);
         long gSure = System.nanoTime() - gBas;
 
-        // Temel mod testi
+
         HashTablo tempT = new HashTablo(false);
         tempT.tumOgrencileriYukle(base);
 

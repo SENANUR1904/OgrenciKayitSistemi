@@ -6,7 +6,7 @@ public class DosyaIslemleri {
     private static final String BASLANGIC_DOSYASI = "baslangic_ogrenciler.txt";
 
     public static List<Ogrenci> ogrencileriDosyadanOku() {
-        // Her zaman başlangıç dosyasını kullan, ana dosyayı değil
+
         File baslangicDosya = new File(BASLANGIC_DOSYASI);
         if (!baslangicDosya.exists()) {
             return baslangicVerisiOlustur();
@@ -22,7 +22,7 @@ public class DosyaIslemleri {
                         ogrenciler.add(ogr);
                     }
                 } catch (Exception e) {
-                    // Geçersiz kayıtları atla
+
                 }
             }
             System.out.println("✅ Başlangıç verileri yüklendi: " + ogrenciler.size() + " öğrenci");
@@ -69,7 +69,7 @@ public class DosyaIslemleri {
             ogrenciler.add(new Ogrenci(isim, soyad, ogrNo, gano, sinif, cinsiyet));
         }
 
-        // Başlangıç dosyasına yaz
+
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(BASLANGIC_DOSYASI)))) {
             for (Ogrenci ogr : ogrenciler) {
                 writer.println(ogr.dosyaFormatinda());
@@ -83,7 +83,7 @@ public class DosyaIslemleri {
     }
 
     public static void baslangicVerilerineDon() {
-        // Ana dosyayı sil, bir sonraki çalıştırmada başlangıç dosyası kullanılacak
+
         File dosya = new File(DOSYA_ADI);
         if (dosya.exists()) dosya.delete();
         System.out.println("✅ Başlangıç verilerine dönüldü!");

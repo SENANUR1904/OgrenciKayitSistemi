@@ -14,3 +14,12 @@
 [Tue Nov 04 23:10:18 TRT 2025] GANO Sıralı Listeleme - Gelişmiş Mod: 845 μs | Listelenen: 10000 öğrenci
 [Tue Nov 04 23:10:22 TRT 2025] Cinsiyet Sıralı Listeleme - Gelişmiş Mod: 857 μs | Listelenen: 10000 öğrenci
 [Tue Nov 04 23:11:12 TRT 2025] Öğrenci No Sıralı Listeleme - Gelişmiş Mod: 866 μs | Listelenen: 10000 öğrenci
+[Tue Nov 04 23:47:54 TRT 2025] Sınıf Sıralı Listeleme - Gelişmiş Mod: 824 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 23:48:06 TRT 2025] GANO Sıralı Listeleme - Gelişmiş Mod: 866 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 23:48:10 TRT 2025] Cinsiyet Sıralı Listeleme - Gelişmiş Mod: 824 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 23:48:19 TRT 2025] İsim Sıralı Listeleme - Gelişmiş Mod: 891 μs | Listelenen: 10001 öğrenci
+[Tue Nov 04 23:48:22 TRT 2025] Öğrenci No Sıralı Listeleme - Gelişmiş Mod: 864 μs | Listelenen: 10001 öğrenci
+[Wed Nov 05 10:04:19 TRT 2025] Sınıf Sıralı Listeleme - Temel Mod: 61656 μs | Listelenen: 10000 öğrenci
+[Wed Nov 05 15:16:37 TRT 2025] GANO Sıralı Listeleme - Temel Mod: 184285 μs | Listelenen: 10000 öğrenci
+[05.11.2025 15:19:50] İşlem: GANO Sıralı Listeleme | Mod: Gelişmiş  | Süre:  23696 µs | Listelenen: 10000 öğrenci
+[05.11.2025 15:19:53] İşlem: Sınıf Sıralı Listeleme | Mod: Gelişmiş  | Süre:  21676 µs | Listelenen: 10000 öğrenci

@@ -1,6 +1,6 @@
 === Sınıfa göre sıralı öğrenciler ===
-Tarih: Tue Nov 04 23:11:16 TRT 2025
-Toplam Öğrenci: 10000
+Tarih: Tue Nov 04 23:48:27 TRT 2025
+Toplam Öğrenci: 10001
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
 Ali          Demir        236212463    1,26     1      E
@@ -7522,6 +7522,7 @@ Fatma        Kaya         236649631    2,93     3      K
 Meryem       Yılmaz       236620396    2,97     3      K
 Ali          Çelik        236205209    3,79     3      E
 Mert         Çelik        236802311    2,30     3      E
+sena         nur          236051037    4,00     3      K
 Ceren        Koç          236329449    3,03     4      K
 Hasan        Kaya         236533548    2,12     4      E
 Mustafa      Öztürk       236966497    2,55     4      E
@@ -10004,4 +10005,4 @@ Elif         Aslan        236977540    2,77     4      K
 Emre         Demir        236476847    1,44     4      E
 Ceren        Demir        236999084    1,80     4      K
 
-Toplam: 10000 öğrenci
+Toplam: 10001 öğrenci

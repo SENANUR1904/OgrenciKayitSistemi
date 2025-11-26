@@ -1,6 +1,6 @@
 === İsime göre sıralı öğrenciler ===
-Tarih: Tue Nov 04 23:11:16 TRT 2025
-Toplam Öğrenci: 10000
+Tarih: Tue Nov 04 23:48:27 TRT 2025
+Toplam Öğrenci: 10001
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
 Ahmet        Acar         236389861    3,15     2      E
@@ -9516,6 +9516,7 @@ Zeynep       Şahin        236716258    2,56     4      K
 Zeynep       Şahin        236246104    3,25     4      K
 Zeynep       Şahin        236493290    3,40     3      K
 Zeynep       Şahin        236769241    3,84     2      K
+sena         nur          236051037    4,00     3      K
 İrem         Acar         236576869    1,79     4      K
 İrem         Acar         236514558    2,44     3      K
 İrem         Acar         236817678    1,76     4      K
@@ -10004,4 +10005,4 @@ Zeynep       Şahin        236769241    3,84     2      K
 İrem         Şahin        236651440    1,38     3      K
 İrem         Şahin        236855018    1,83     2      K
 
-Toplam: 10000 öğrenci
+Toplam: 10001 öğrenci

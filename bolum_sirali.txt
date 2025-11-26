@@ -1,8 +1,9 @@
 === Bölüme göre sıralı öğrenciler ===
-Tarih: Tue Nov 04 23:11:16 TRT 2025
-Toplam Öğrenci: 10000
+Tarih: Tue Nov 04 23:48:27 TRT 2025
+Toplam Öğrenci: 10001
 İsim         Soyad        No           GANO     Sınıf  Cinsiyet
 ----------------------------------------------------------------
+sena         nur          236051037    4,00     3      K
 Mert         Öztürk       236465945    4,00     2      E
 Burak        Demir        236871398    4,00     4      E
 Hasan        Koç          236955178    4,00     1      E
@@ -10004,4 +10005,4 @@ Hasan        Şahin        236308145    1,00     1      E
 Mehmet       Aslan        236110803    1,00     4      E
 Ayşe         Öztürk       236135917    1,00     4      K
 
-Toplam: 10000 öğrenci
+Toplam: 10001 öğrenci
